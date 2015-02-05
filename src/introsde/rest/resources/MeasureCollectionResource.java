@@ -1,5 +1,7 @@
 package introsde.rest.resources;
 
+import introsde.business.ws.BusinessLogicLSCoach;
+import introsde.business.ws.BusinessLogicLSCoachService;
 import introsde.storage.ws.HealthMeasureHistory;
 import introsde.storage.ws.Measure;
 import introsde.storage.ws.MeasureDefinition;
@@ -17,6 +19,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceUnit;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -42,7 +45,7 @@ public class MeasureCollectionResource {
 
 	Long idPerson;
 	
-	private MeasureDefinition measureDef;
+	private String measureDef;
 	
 	People peopleStorageService;
 
@@ -50,11 +53,8 @@ public class MeasureCollectionResource {
 		this.uriInfo = uriInfo;
 		this.request = request;
 		this.idPerson = idP;
-		this.peopleStorageService = peopleStorageService;
-		
-		measureDef = peopleStorageService.getCompleteMeasureTypeFromName(measure);
-		
-		
+		this.peopleStorageService = peopleStorageService;	
+		this.measureDef = measure;	
 		
 	}
 
@@ -88,23 +88,23 @@ public class MeasureCollectionResource {
 //		return Response.status(201).entity(measure).build();
 //	}
 
-	@Path("{measureId}")
+	@Path("/{measureId}")
 	public MeasureResource getMeasure(@PathParam("measureId") int measureId) {
 		return new MeasureResource(uriInfo, request, idPerson, measureId, measureDef, peopleStorageService);
 	}
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<HealthMeasureHistory> getMeasureFromTo(@QueryParam("before") Long from,
+	public List<HealthMeasureHistory> getLocalMeasureFromTo(@QueryParam("before") Long from,
 			@QueryParam("after") Long to) {
 		List<HealthMeasureHistory> history = null;
 		try {
 			if (from == null || to == null) {
 				System.out.println("Getting list of measures...");
-				history = peopleStorageService.readPersonLocalHistory(idPerson, measureDef.getMeasureName());
+				history = peopleStorageService.readPersonLocalHistory(idPerson, measureDef);
 			} else {
 
-				history = peopleStorageService.readPersonMeasureByDates(idPerson, measureDef.getMeasureName(), from, to);
+				history = peopleStorageService.readPersonMeasureByDates(idPerson, measureDef, from, to);
 
 			}
 
@@ -117,4 +117,42 @@ public class MeasureCollectionResource {
 
 	}
 
+	
+	
+	@GET
+	@Path("remote")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public List<HealthMeasureHistory> getRemoteMeasureFromTo(@QueryParam("before") Long from,
+			@QueryParam("after") Long to, @HeaderParam("Authorization") String token) {
+		
+		BusinessLogicLSCoachService businessServ = new BusinessLogicLSCoachService();
+		BusinessLogicLSCoach businessService = businessServ
+				.getBusinessLogicLSCoachImplPort();
+		
+		if(measureDef.equals("weight")){
+			token = token.replace("Bearer ", "");
+			businessService.syncWeightToDB(token);
+		}
+		
+		List<HealthMeasureHistory> history = null;
+		try {
+			if (from == null || to == null) {
+				System.out.println("Getting list of measures...");
+				history = peopleStorageService.readPersonLocalHistory(idPerson, measureDef);
+			} else {
+
+				history = peopleStorageService.readPersonMeasureByDates(idPerson, measureDef, from, to);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return history;
+
+	}
+
+	
 }

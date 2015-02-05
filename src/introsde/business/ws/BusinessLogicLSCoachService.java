@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "BusinessLogicLSCoachService", targetNamespace = "http://ws.business.introsde/", wsdlLocation = "http://localhost:6905/ws/lifecoach/businesslogic?wsdl")
+@WebServiceClient(name = "BusinessLogicLSCoachService", targetNamespace = "http://ws.business.introsde/", wsdlLocation = "http://localhost:6902/ws/lifecoach/businesslogic?wsdl")
 public class BusinessLogicLSCoachService
     extends Service
 {
@@ -30,7 +30,7 @@ public class BusinessLogicLSCoachService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:6905/ws/lifecoach/businesslogic?wsdl");
+            url = new URL("http://localhost:6902/ws/lifecoach/businesslogic?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

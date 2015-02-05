@@ -56,13 +56,12 @@ public class ObjectFactory {
     private final static QName _ReadPersonGoalForMeasureType_QNAME = new QName("http://ws.storage.introsde/", "readPersonGoalForMeasureType");
     private final static QName _ReadPersonGoalsResponse_QNAME = new QName("http://ws.storage.introsde/", "readPersonGoalsResponse");
     private final static QName _Measure_QNAME = new QName("http://ws.storage.introsde/", "Measure");
-    private final static QName _MeasureDefaultRange_QNAME = new QName("http://ws.storage.introsde/", "measureDefaultRange");
-    private final static QName _ReadPersonRemoteWeightHistory_QNAME = new QName("http://ws.storage.introsde/", "readPersonRemoteWeightHistory");
     private final static QName _ReadPersonMeasureByDates_QNAME = new QName("http://ws.storage.introsde/", "readPersonMeasureByDates");
+    private final static QName _ReadPersonRemoteWeightHistory_QNAME = new QName("http://ws.storage.introsde/", "readPersonRemoteWeightHistory");
     private final static QName _ReadRemotePersonResponse_QNAME = new QName("http://ws.storage.introsde/", "readRemotePersonResponse");
     private final static QName _GetPersonList_QNAME = new QName("http://ws.storage.introsde/", "getPersonList");
-    private final static QName _ReadPersonLocalHistoryResponse_QNAME = new QName("http://ws.storage.introsde/", "readPersonLocalHistoryResponse");
     private final static QName _ReadPersonListByMeasurementRange_QNAME = new QName("http://ws.storage.introsde/", "readPersonListByMeasurementRange");
+    private final static QName _ReadPersonLocalHistoryResponse_QNAME = new QName("http://ws.storage.introsde/", "readPersonLocalHistoryResponse");
     private final static QName _UpdatePersonHealthProfile_QNAME = new QName("http://ws.storage.introsde/", "updatePersonHealthProfile");
     private final static QName _ReadPerson_QNAME = new QName("http://ws.storage.introsde/", "readPerson");
     private final static QName _ReadPersonMeasurement_QNAME = new QName("http://ws.storage.introsde/", "readPersonMeasurement");
@@ -145,14 +144,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link MeasureDefaultRange }
-     * 
-     */
-    public MeasureDefaultRange createMeasureDefaultRange() {
-        return new MeasureDefaultRange();
-    }
-
-    /**
      * Create an instance of {@link LifeStatus }
      * 
      */
@@ -201,19 +192,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ReadPersonLocalHistoryResponse }
-     * 
-     */
-    public ReadPersonLocalHistoryResponse createReadPersonLocalHistoryResponse() {
-        return new ReadPersonLocalHistoryResponse();
-    }
-
-    /**
      * Create an instance of {@link ReadPersonListByMeasurementRange }
      * 
      */
     public ReadPersonListByMeasurementRange createReadPersonListByMeasurementRange() {
         return new ReadPersonListByMeasurementRange();
+    }
+
+    /**
+     * Create an instance of {@link ReadPersonLocalHistoryResponse }
+     * 
+     */
+    public ReadPersonLocalHistoryResponse createReadPersonLocalHistoryResponse() {
+        return new ReadPersonLocalHistoryResponse();
     }
 
     /**
@@ -769,12 +760,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureDefaultRange }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReadPersonMeasureByDates }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://ws.storage.introsde/", name = "measureDefaultRange")
-    public JAXBElement<MeasureDefaultRange> createMeasureDefaultRange(MeasureDefaultRange value) {
-        return new JAXBElement<MeasureDefaultRange>(_MeasureDefaultRange_QNAME, MeasureDefaultRange.class, null, value);
+    @XmlElementDecl(namespace = "http://ws.storage.introsde/", name = "readPersonMeasureByDates")
+    public JAXBElement<ReadPersonMeasureByDates> createReadPersonMeasureByDates(ReadPersonMeasureByDates value) {
+        return new JAXBElement<ReadPersonMeasureByDates>(_ReadPersonMeasureByDates_QNAME, ReadPersonMeasureByDates.class, null, value);
     }
 
     /**
@@ -784,15 +775,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.storage.introsde/", name = "readPersonRemoteWeightHistory")
     public JAXBElement<ReadPersonRemoteWeightHistory> createReadPersonRemoteWeightHistory(ReadPersonRemoteWeightHistory value) {
         return new JAXBElement<ReadPersonRemoteWeightHistory>(_ReadPersonRemoteWeightHistory_QNAME, ReadPersonRemoteWeightHistory.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReadPersonMeasureByDates }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.storage.introsde/", name = "readPersonMeasureByDates")
-    public JAXBElement<ReadPersonMeasureByDates> createReadPersonMeasureByDates(ReadPersonMeasureByDates value) {
-        return new JAXBElement<ReadPersonMeasureByDates>(_ReadPersonMeasureByDates_QNAME, ReadPersonMeasureByDates.class, null, value);
     }
 
     /**
@@ -814,21 +796,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReadPersonLocalHistoryResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.storage.introsde/", name = "readPersonLocalHistoryResponse")
-    public JAXBElement<ReadPersonLocalHistoryResponse> createReadPersonLocalHistoryResponse(ReadPersonLocalHistoryResponse value) {
-        return new JAXBElement<ReadPersonLocalHistoryResponse>(_ReadPersonLocalHistoryResponse_QNAME, ReadPersonLocalHistoryResponse.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ReadPersonListByMeasurementRange }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://ws.storage.introsde/", name = "readPersonListByMeasurementRange")
     public JAXBElement<ReadPersonListByMeasurementRange> createReadPersonListByMeasurementRange(ReadPersonListByMeasurementRange value) {
         return new JAXBElement<ReadPersonListByMeasurementRange>(_ReadPersonListByMeasurementRange_QNAME, ReadPersonListByMeasurementRange.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReadPersonLocalHistoryResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.storage.introsde/", name = "readPersonLocalHistoryResponse")
+    public JAXBElement<ReadPersonLocalHistoryResponse> createReadPersonLocalHistoryResponse(ReadPersonLocalHistoryResponse value) {
+        return new JAXBElement<ReadPersonLocalHistoryResponse>(_ReadPersonLocalHistoryResponse_QNAME, ReadPersonLocalHistoryResponse.class, null, value);
     }
 
     /**

@@ -31,12 +31,12 @@ public class MeasureResource {
 
 	int idHealthMeasureHistory;
 	
-	MeasureDefinition measureDef;
+	String measureDef;
 	
 	People peopleStorageService;
 	
 
-	public MeasureResource(UriInfo uriInfo, Request request, Long idP, int idM, MeasureDefinition measureDef, People peopleStorageService) {
+	public MeasureResource(UriInfo uriInfo, Request request, Long idP, int idM, String measureDef, People peopleStorageService) {
         this.uriInfo = uriInfo;
         this.request = request;
         this.idPerson = idP;
@@ -52,7 +52,7 @@ public class MeasureResource {
     @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML })
     public Response getHealthMeasureHistory() {
     	
-    	HealthMeasureHistory healthMeasure = peopleStorageService.readPersonMeasurement(idPerson, measureDef.getMeasureName(), idHealthMeasureHistory);
+    	HealthMeasureHistory healthMeasure = peopleStorageService.readPersonMeasurement(idPerson, measureDef, idHealthMeasureHistory);
     	
     	if (healthMeasure == null){
         	return Response.status(404).entity(healthMeasure).build();

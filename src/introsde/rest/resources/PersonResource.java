@@ -100,7 +100,7 @@ public class PersonResource {
 	
 	@Path("{measureType}")
 	public MeasureCollectionResource getLifeStyleOfMeasure(
-			@PathParam("measure") String measure) {
+			@PathParam("measureType") String measure) {
 		try {
 			return new MeasureCollectionResource(uriInfo, request, id, peopleStorageService, measure);
 		} catch (Exception e) {
