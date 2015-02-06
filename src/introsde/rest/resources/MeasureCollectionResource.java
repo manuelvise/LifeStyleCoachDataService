@@ -128,10 +128,14 @@ public class MeasureCollectionResource {
 		BusinessLogicLSCoachService businessServ = new BusinessLogicLSCoachService();
 		BusinessLogicLSCoach businessService = businessServ
 				.getBusinessLogicLSCoachImplPort();
-		
+		boolean operation = false;
 		if(measureDef.equals("weight")){
 			token = token.replace("Bearer ", "");
-			businessService.syncWeightToDB(token);
+			operation = businessService.syncWeightToDB(token);
+		}
+		
+		if(!operation){
+			return null;
 		}
 		
 		List<HealthMeasureHistory> history = null;
