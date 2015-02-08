@@ -43,8 +43,8 @@ public class GoalResource {
 
 
 	@POST
-	@Produces(MediaType.APPLICATION_XML)
-	@Consumes(MediaType.APPLICATION_XML)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
 	public Goal newGoal(@QueryParam("value") String value, @QueryParam("deadline") Long deadline) throws IOException {
 		System.out.println("Creating new goal...");
 		

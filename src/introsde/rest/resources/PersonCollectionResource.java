@@ -107,45 +107,46 @@ public class PersonCollectionResource {
 		return String.valueOf(count);
 	}
 
-	// // let's create this service for responding a submission form
-	@POST
-	@Produces(MediaType.TEXT_HTML)
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public void newPerson(@FormParam("id") Long id,
-			@FormParam("firstname") String firstname,
-			@FormParam("lastname") String lastname,
-			@Context HttpServletResponse servletResponse) throws IOException {
-		Person p = new Person();
-		p.setIdPerson(id);
-		p.setName(firstname);
-		p.setLastname(lastname);
-		peopleStorageService.createPerson(p);
-		servletResponse.sendRedirect("../NewPerson.html");
-	}
+//	// // let's create this service for responding a submission form
+//	@POST
+//	@Produces(MediaType.TEXT_HTML)
+//	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+//	public void newPerson(@FormParam("id") Long id,
+//			@FormParam("firstname") String firstname,
+//			@FormParam("lastname") String lastname,
+//			@Context HttpServletResponse servletResponse) throws IOException {
+//		Person p = new Person();
+//		p.setIdPerson(id);
+//		p.setName(firstname);
+//		p.setLastname(lastname);
+//		peopleStorageService.createPerson(p);
+//		servletResponse.sendRedirect("../NewPerson.html");
+//	}
 
 	// let's create this service for responding a submission form
 	//
-	@POST
-	@Produces(MediaType.APPLICATION_XML)
-	@Consumes(MediaType.APPLICATION_XML)
-	public Person newPerson(Person person) throws IOException {
-		System.out.println("Creating new person...");
-		// EntityManager entityManager =
-		// entityManagerFactory.createEntityManager();
-		// EntityManager entityManager =
-		// PersonDao.instance.createEntityManager();
-		// try {
-		// entityManager.persist(person);
-		// entityManager.refresh(person);
-		// return person;
-		// } finally {
-		// entityManager.close();
-		// }
-		Person personSaved = peopleStorageService.createPerson(person);
-
-		return personSaved;
-
-	}
+//	@POST
+//	@Produces(MediaType.APPLICATION_XML)
+//	@Consumes(MediaType.APPLICATION_XML)
+//	public Person newPerson(Person person) throws IOException {
+//		System.out.println("Creating new person...");
+//		// EntityManager entityManager =
+//		// entityManagerFactory.createEntityManager();
+//		// EntityManager entityManager =
+//		// PersonDao.instance.createEntityManager();
+//		// try {
+//		// entityManager.persist(person);
+//		// entityManager.refresh(person);
+//		// return person;
+//		// } finally {
+//		// entityManager.close();
+//		// }
+//		Person personSaved = peopleStorageService.createPerson(person);
+//
+//		return personSaved;
+//		
+//
+//	}
 
 	// Defines that the next path parameter after the base url is
 	// treated as a parameter and passed to the PersonResources

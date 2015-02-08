@@ -34,7 +34,7 @@ public interface BusinessLogicLSCoach {
      *     returns java.lang.Boolean
      */
     @WebMethod
-    @WebResult(name = "fitnessActivities", targetNamespace = "")
+    @WebResult(name = "boolean", targetNamespace = "")
     @RequestWrapper(localName = "syncWeightToDB", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.SyncWeightToDB")
     @ResponseWrapper(localName = "syncWeightToDBResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.SyncWeightToDBResponse")
     @Action(input = "http://ws.business.introsde/BusinessLogicLSCoach/syncWeightToDBRequest", output = "http://ws.business.introsde/BusinessLogicLSCoach/syncWeightToDBResponse")
@@ -74,5 +74,20 @@ public interface BusinessLogicLSCoach {
         String name,
         @WebParam(name = "type", targetNamespace = "")
         String type);
+
+    /**
+     * 
+     * @param accessToken
+     * @return
+     *     returns java.lang.Boolean
+     */
+    @WebMethod
+    @WebResult(name = "boolean", targetNamespace = "")
+    @RequestWrapper(localName = "syncActivitiesToDB", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.SyncActivitiesToDB")
+    @ResponseWrapper(localName = "syncActivitiesToDBResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.SyncActivitiesToDBResponse")
+    @Action(input = "http://ws.business.introsde/BusinessLogicLSCoach/syncActivitiesToDBRequest", output = "http://ws.business.introsde/BusinessLogicLSCoach/syncActivitiesToDBResponse")
+    public Boolean syncActivitiesToDB(
+        @WebParam(name = "accessToken", targetNamespace = "")
+        String accessToken);
 
 }

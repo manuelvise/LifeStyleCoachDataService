@@ -28,14 +28,24 @@ public class ObjectFactory {
     private final static QName _SyncPersonToDB_QNAME = new QName("http://ws.business.introsde/", "syncPersonToDB");
     private final static QName _SetupNewDefinitioMeasureResponse_QNAME = new QName("http://ws.business.introsde/", "setupNewDefinitioMeasureResponse");
     private final static QName _SyncWeightToDB_QNAME = new QName("http://ws.business.introsde/", "syncWeightToDB");
+    private final static QName _SyncActivitiesToDB_QNAME = new QName("http://ws.business.introsde/", "syncActivitiesToDB");
     private final static QName _SetupNewDefinitioMeasure_QNAME = new QName("http://ws.business.introsde/", "setupNewDefinitioMeasure");
     private final static QName _SyncPersonToDBResponse_QNAME = new QName("http://ws.business.introsde/", "syncPersonToDBResponse");
+    private final static QName _SyncActivitiesToDBResponse_QNAME = new QName("http://ws.business.introsde/", "syncActivitiesToDBResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: introsde.business.ws
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link SyncActivitiesToDBResponse }
+     * 
+     */
+    public SyncActivitiesToDBResponse createSyncActivitiesToDBResponse() {
+        return new SyncActivitiesToDBResponse();
     }
 
     /**
@@ -52,6 +62,14 @@ public class ObjectFactory {
      */
     public SetupNewDefinitioMeasure createSetupNewDefinitioMeasure() {
         return new SetupNewDefinitioMeasure();
+    }
+
+    /**
+     * Create an instance of {@link SyncActivitiesToDB }
+     * 
+     */
+    public SyncActivitiesToDB createSyncActivitiesToDB() {
+        return new SyncActivitiesToDB();
     }
 
     /**
@@ -123,6 +141,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SyncActivitiesToDB }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "syncActivitiesToDB")
+    public JAXBElement<SyncActivitiesToDB> createSyncActivitiesToDB(SyncActivitiesToDB value) {
+        return new JAXBElement<SyncActivitiesToDB>(_SyncActivitiesToDB_QNAME, SyncActivitiesToDB.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SetupNewDefinitioMeasure }{@code >}}
      * 
      */
@@ -138,6 +165,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "syncPersonToDBResponse")
     public JAXBElement<SyncPersonToDBResponse> createSyncPersonToDBResponse(SyncPersonToDBResponse value) {
         return new JAXBElement<SyncPersonToDBResponse>(_SyncPersonToDBResponse_QNAME, SyncPersonToDBResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SyncActivitiesToDBResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "syncActivitiesToDBResponse")
+    public JAXBElement<SyncActivitiesToDBResponse> createSyncActivitiesToDBResponse(SyncActivitiesToDBResponse value) {
+        return new JAXBElement<SyncActivitiesToDBResponse>(_SyncActivitiesToDBResponse_QNAME, SyncActivitiesToDBResponse.class, null, value);
     }
 
 }

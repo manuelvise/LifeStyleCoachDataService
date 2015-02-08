@@ -8,12 +8,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for syncWeightToDBResponse complex type.
+ * <p>Java class for syncActivitiesToDBResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="syncWeightToDBResponse">
+ * &lt;complexType name="syncActivitiesToDBResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -27,10 +27,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "syncWeightToDBResponse", propOrder = {
+@XmlType(name = "syncActivitiesToDBResponse", propOrder = {
     "_boolean"
 })
-public class SyncWeightToDBResponse {
+public class SyncActivitiesToDBResponse {
 
     @XmlElement(name = "boolean")
     protected Boolean _boolean;

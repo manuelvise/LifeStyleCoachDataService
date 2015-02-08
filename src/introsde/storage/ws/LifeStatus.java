@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="idMeasure" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element ref="{http://ws.storage.introsde/}measureDefinition" minOccurs="0"/>
+ *         &lt;element name="measureDefinition" type="{http://ws.storage.introsde/}measureDefinition" minOccurs="0" form="qualified"/>
  *         &lt;element name="value" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>

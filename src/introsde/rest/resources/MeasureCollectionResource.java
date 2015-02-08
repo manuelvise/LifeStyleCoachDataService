@@ -129,9 +129,11 @@ public class MeasureCollectionResource {
 		BusinessLogicLSCoach businessService = businessServ
 				.getBusinessLogicLSCoachImplPort();
 		boolean operation = false;
+		token = token.replace("Bearer ", "");
 		if(measureDef.equals("weight")){
-			token = token.replace("Bearer ", "");
 			operation = businessService.syncWeightToDB(token);
+		}else if(measureDef.equals("activity")){//if activity
+			operation = businessService.syncActivitiesToDB(token);
 		}
 		
 		if(!operation){
