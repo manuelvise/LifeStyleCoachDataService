@@ -38,6 +38,7 @@ public class GoalResource {
 		this.uriInfo = uriInfo;
 		this.request = request;
 		this.id = id;
+		this.measureType = measureType;
 		this.peopleStorageService = peopleStorageService;
 	}
 
