@@ -1,6 +1,7 @@
 
 package introsde.business.ws;
 
+import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -21,11 +22,23 @@ import introsde.storage.ws.Person;
  */
 @WebService(name = "BusinessLogicLSCoach", targetNamespace = "http://ws.business.introsde/")
 @XmlSeeAlso({
-    introsde.storage.ws.ObjectFactory.class,
-    introsde.business.ws.ObjectFactory.class
+    introsde.business.ws.ObjectFactory.class,
+    introsde.storage.ws.ObjectFactory.class
 })
 public interface BusinessLogicLSCoach {
 
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<introsde.storage.ws.Person>
+     */
+    @WebMethod
+    @WebResult(name = "peopleWithLifeStatusCalculation", targetNamespace = "")
+    @RequestWrapper(localName = "getPeopleWithLocalLifeStatusCalculation", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetPeopleWithLocalLifeStatusCalculation")
+    @ResponseWrapper(localName = "getPeopleWithLocalLifeStatusCalculationResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetPeopleWithLocalLifeStatusCalculationResponse")
+    @Action(input = "http://ws.business.introsde/BusinessLogicLSCoach/getPeopleWithLocalLifeStatusCalculationRequest", output = "http://ws.business.introsde/BusinessLogicLSCoach/getPeopleWithLocalLifeStatusCalculationResponse")
+    public List<Person> getPeopleWithLocalLifeStatusCalculation();
 
     /**
      * 

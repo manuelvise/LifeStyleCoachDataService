@@ -31,6 +31,8 @@ public class ObjectFactory {
     private final static QName _SyncActivitiesToDB_QNAME = new QName("http://ws.business.introsde/", "syncActivitiesToDB");
     private final static QName _SetupNewDefinitioMeasure_QNAME = new QName("http://ws.business.introsde/", "setupNewDefinitioMeasure");
     private final static QName _SyncPersonToDBResponse_QNAME = new QName("http://ws.business.introsde/", "syncPersonToDBResponse");
+    private final static QName _GetPeopleWithLocalLifeStatusCalculation_QNAME = new QName("http://ws.business.introsde/", "getPeopleWithLocalLifeStatusCalculation");
+    private final static QName _GetPeopleWithLocalLifeStatusCalculationResponse_QNAME = new QName("http://ws.business.introsde/", "getPeopleWithLocalLifeStatusCalculationResponse");
     private final static QName _SyncActivitiesToDBResponse_QNAME = new QName("http://ws.business.introsde/", "syncActivitiesToDBResponse");
 
     /**
@@ -46,6 +48,22 @@ public class ObjectFactory {
      */
     public SyncActivitiesToDBResponse createSyncActivitiesToDBResponse() {
         return new SyncActivitiesToDBResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetPeopleWithLocalLifeStatusCalculationResponse }
+     * 
+     */
+    public GetPeopleWithLocalLifeStatusCalculationResponse createGetPeopleWithLocalLifeStatusCalculationResponse() {
+        return new GetPeopleWithLocalLifeStatusCalculationResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetPeopleWithLocalLifeStatusCalculation }
+     * 
+     */
+    public GetPeopleWithLocalLifeStatusCalculation createGetPeopleWithLocalLifeStatusCalculation() {
+        return new GetPeopleWithLocalLifeStatusCalculation();
     }
 
     /**
@@ -165,6 +183,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "syncPersonToDBResponse")
     public JAXBElement<SyncPersonToDBResponse> createSyncPersonToDBResponse(SyncPersonToDBResponse value) {
         return new JAXBElement<SyncPersonToDBResponse>(_SyncPersonToDBResponse_QNAME, SyncPersonToDBResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetPeopleWithLocalLifeStatusCalculation }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "getPeopleWithLocalLifeStatusCalculation")
+    public JAXBElement<GetPeopleWithLocalLifeStatusCalculation> createGetPeopleWithLocalLifeStatusCalculation(GetPeopleWithLocalLifeStatusCalculation value) {
+        return new JAXBElement<GetPeopleWithLocalLifeStatusCalculation>(_GetPeopleWithLocalLifeStatusCalculation_QNAME, GetPeopleWithLocalLifeStatusCalculation.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetPeopleWithLocalLifeStatusCalculationResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "getPeopleWithLocalLifeStatusCalculationResponse")
+    public JAXBElement<GetPeopleWithLocalLifeStatusCalculationResponse> createGetPeopleWithLocalLifeStatusCalculationResponse(GetPeopleWithLocalLifeStatusCalculationResponse value) {
+        return new JAXBElement<GetPeopleWithLocalLifeStatusCalculationResponse>(_GetPeopleWithLocalLifeStatusCalculationResponse_QNAME, GetPeopleWithLocalLifeStatusCalculationResponse.class, null, value);
     }
 
     /**

@@ -70,6 +70,20 @@ public class PersonCollectionResource {
 		List<Person> people = peopleStorageService.getPersonList();
 		return people;
 	}
+	
+	
+	@GET
+	@Path("business")
+	@Produces({ MediaType.TEXT_XML, MediaType.APPLICATION_JSON,
+			MediaType.APPLICATION_XML })
+	public List<Person> getPersonsWithLifeStatus() {
+		System.out.println("Getting list of people with business operation...");
+		BusinessLogicLSCoachService businessL = new BusinessLogicLSCoachService();
+		BusinessLogicLSCoach business = businessL.getBusinessLogicLSCoachImplPort();
+		List<Person> people = business.getPeopleWithLocalLifeStatusCalculation();
+		return people;
+	}
+	
 
 	@GET
 	@Path("sync")
